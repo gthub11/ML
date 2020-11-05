@@ -10,8 +10,8 @@
 #define Mask_height 64
 #define Mask_radius_x Mask_width/2
 #define Mask_radius_y Mask_height/2
-#define TILE_WIDTH 32  //16 X 16 TILE
-#define w_x (TILE_WIDTH + Mask_width - 1) //Shared Memory Elements needed to load as per Mask Size
+#define TILE_WIDTH 32  
+#define w_x (TILE_WIDTH + Mask_width - 1) 
 #define w_y (TILE_WIDTH + Mask_height - 1)
 #define clamp(x) (min(max((x), 0.0), 1.0))
 
@@ -90,13 +90,11 @@ int main() {
     float * outputImageOnHost;
 
     hostMaskData = (float *) malloc(sizeof(float)*maskRows*maskColumns);
-    for(int i=0;i<maskRows*maskColumns;i++)//To set Mask of size 5*5 which has all values as 1{
+    for(int i=0;i<maskRows*maskColumns;i++)
     	hostMaskData[i]=1.0;
     }
-
-//Comment this assert code for 64 X 32
-    //assert(maskRows == 5); /* mask height is fixed to 5 in this mp */
-    //assert(maskColumns == 5); /* mask width is fixed to 5 in this mp */
+    //assert(maskRows == 5); 
+    //assert(maskColumns == 5); 
 
     //To store Memory
     hostInputImageData = (float *) malloc(sizeof(float)*imageWidth*imageHeight);
@@ -147,7 +145,7 @@ int main() {
         			}
         		}
 
-#if 0  //Must comment this
+#if 0  //
     for(int i=0;i<imageWidth*imageHeight;i++){
     		if(i>0 && (i%imageWidth==0))
     			printf("\n");
